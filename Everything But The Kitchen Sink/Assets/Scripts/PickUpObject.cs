@@ -71,7 +71,7 @@ public class PickUpObject : MonoBehaviour
 
             pickedUpRb.transform.parent = holdLoc;
             pickedUpObject = pickUpObject;
-            pickedUpObject.GetComponent<BoxCollider>().enabled = false;
+            pickedUpObject.GetComponent<Collider>().enabled = false;
         }
     }
 
@@ -84,7 +84,7 @@ public class PickUpObject : MonoBehaviour
 
         //Throws Object
         pickedUpRb.AddForce(cameraLoc.TransformDirection(Vector3.forward) * throwStrength, ForceMode.Impulse);
-        pickedUpObject.GetComponent<BoxCollider>().enabled = true;
+        pickedUpObject.GetComponent<Collider>().enabled = true;
 
         //Resets the references
         pickedUpRb.transform.parent = null;

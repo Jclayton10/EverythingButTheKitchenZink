@@ -34,7 +34,8 @@ public class EnemyStats : MonoBehaviour
             {
                 if (collision.gameObject.tag == "Carryable")
                 {
-                    TakeDamage(collision.gameObject.GetComponent<BreakableObject>().damage);
+                    if(collision.gameObject.GetComponent<BreakableObject>())
+                        TakeDamage(collision.gameObject.GetComponent<BreakableObject>().damage);
                 }
             }
         }
