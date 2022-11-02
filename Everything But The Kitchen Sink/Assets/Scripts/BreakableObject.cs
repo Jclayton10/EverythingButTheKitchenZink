@@ -51,7 +51,7 @@ public class BreakableObject : MonoBehaviour
     private void Shrink()
     {
         transform.localScale -= new Vector3(shrinkSpeed, shrinkSpeed, shrinkSpeed) * Time.deltaTime;
-        if (transform.localScale.magnitude < 0.1f)
+        if (transform.localScale.x <= 0 || transform.localScale.y <= 0 || transform.localScale.z <= 0)
             Destroy(gameObject);
     }
 
