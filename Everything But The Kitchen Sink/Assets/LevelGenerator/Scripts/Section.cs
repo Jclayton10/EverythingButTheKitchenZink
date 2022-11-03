@@ -56,7 +56,7 @@ namespace LevelGenerator.Scripts
                         else
                             GenerateSection(e);
                     else
-                        PlaceDeadEnd(e);
+                        PlaceWall(e);
                 }
             }
         }

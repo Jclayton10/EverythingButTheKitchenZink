@@ -7289,6 +7289,7 @@ MonoBehaviour:
   - room
   CreatesTags:
   - corridor
+  - room
   Exits: {fileID: 3859117998297751581}
   Bounds: {fileID: 1353401346392078174}
   DeadEndChance: 10
