@@ -74,9 +74,11 @@ namespace LevelGenerator.Scripts
             else
             {
                 Destroy(candidate.gameObject);
-                PlaceDeadEnd(exit);
+                PlaceWall(exit);
             }
         }
+
+        protected void PlaceWall(Transform exit) => Instantiate(LevelGenerator.Wall, exit);
 
         protected void PlaceDeadEnd(Transform exit) => Instantiate(LevelGenerator.DeadEnds.PickOne(), exit).Initialize(LevelGenerator);
 

@@ -58,6 +58,8 @@ namespace LevelGenerator.Scripts
         protected List<Collider> DeadEndColliders = new List<Collider>();
         protected bool HalfLevelBuilt => registeredSections.Count > LevelSize;
 
+        public GameObject Wall;
+
         protected void Start()
         {
             if (Seed != 0)
