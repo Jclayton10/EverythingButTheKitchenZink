@@ -2,7 +2,7 @@
 
 namespace LevelGenerator.Scripts
 {
-    public class DeadEnd : MonoBehaviour
+    public sealed class DeadEnd : MonoBehaviour
     {
         /// <summary>
         /// Bounds node in hierarchy

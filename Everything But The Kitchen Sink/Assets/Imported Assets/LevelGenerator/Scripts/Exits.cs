@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LevelGenerator.Scripts
 {
-    public class Exits : MonoBehaviour
+    public sealed class Exits : MonoBehaviour
     {
         public IEnumerable<Transform> ExitSpots => GetComponentsInChildren<Transform>().Where(t => t != transform);
     }

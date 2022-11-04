@@ -4,10 +4,11 @@ using LevelGenerator.Scripts.Exceptions;
 using LevelGenerator.Scripts.Helpers;
 using LevelGenerator.Scripts.Structure;
 using UnityEngine;
+using System.Diagnostics;
 
 namespace LevelGenerator.Scripts
 {
-    public class LevelGenerator : MonoBehaviour
+    public sealed class LevelGenerator : MonoBehaviour
     {
         /// <summary>
         /// LevelGenerator seed
@@ -59,9 +60,11 @@ namespace LevelGenerator.Scripts
         protected bool HalfLevelBuilt => registeredSections.Count > LevelSize;
 
         public GameObject Wall;
+        public Stopwatch stopwatch = new Stopwatch();
 
         protected void Start()
         {
+            stopwatch.Start();
             if (Seed != 0)
                 RandomService.SetSeed(Seed);
             else
@@ -71,6 +74,8 @@ namespace LevelGenerator.Scripts
             LevelSize = MaxLevelSize;
             CreateInitialSection();
             DeactivateBounds();
+            stopwatch.Stop();
+            UnityEngine.Debug.Log("The time in milliseconds for generation is: " + stopwatch.ElapsedMilliseconds);
         }
 
         protected void CheckRuleIntegrity()

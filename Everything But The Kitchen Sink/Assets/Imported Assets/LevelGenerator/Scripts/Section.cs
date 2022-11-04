@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace LevelGenerator.Scripts
 {
-    public class Section : MonoBehaviour
+    public sealed class Section : MonoBehaviour
     {
         /// <summary>
         /// Section tags
