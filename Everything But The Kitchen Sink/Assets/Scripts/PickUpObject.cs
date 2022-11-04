@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PickUpObject : MonoBehaviour
@@ -14,15 +12,19 @@ public class PickUpObject : MonoBehaviour
     //Strength the object will shoot toward the player
     public float pickUpForce;
 
-    //Information about the gameobject that is picked up
+    //Game Object that is being picked up
     private GameObject pickedUpObject;
+    //Rigidbody of the object that is being picked up
     private Rigidbody pickedUpRb;
 
     [Header("Throw Settings")]
     //How hard the object will be thrown
     public float throwStrength;
 
-
+    /// <summary>
+    /// If the player clicks the left mouse button, it will pick up an object if it doesn't currently have one. Or, it will throw the object.
+    /// If the left mouse button isn't clicked, it will update the item location
+    /// </summary>
     public void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -47,40 +49,42 @@ public class PickUpObject : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates the object to the location it should be held at
+    /// </summary>
     void moveObject()
     {
-        if(Vector3.Distance(pickedUpObject.transform.position, holdLoc.position) > 0.1f)
-        {
-            pickedUpObject.transform.position = Vector3.MoveTowards(
-                                                                    pickedUpObject.transform.position, 
-                                                                    holdLoc.position, 
-                                                                    pickUpForce
-                                                );
-        }
+        //Checks if the gameObject is within a certain radius
+        pickedUpObject.transform.position = holdLoc.transform.position;
+        pickedUpObject.transform.rotation = holdLoc.transform.rotation;
     }
 
+    /// <summary>
+    /// Picks up an object. Sets the pickedUpObject and pickedUpRb variables
+    /// </summary>
+    /// <param name="pickUpObject">Object to be picked up</param>
     void pickupObject(GameObject pickUpObject) 
     {
         //Makes sure that there is a rigidbody
         if (pickUpObject.GetComponent<Rigidbody>())
         {
+            //Sets the pickedUpRb values. It also turns of gravity for the object
             pickedUpRb = pickUpObject.GetComponent<Rigidbody>();
             pickedUpRb.useGravity = false;
-            pickedUpRb.drag = 10;
-            pickedUpRb.constraints = RigidbodyConstraints.FreezeRotation;
 
-            pickedUpRb.transform.parent = holdLoc;
+            //Sets the pickedUpObject value. It also disables the collider for the object
             pickedUpObject = pickUpObject;
             pickedUpObject.GetComponent<Collider>().enabled = false;
         }
     }
 
+    /// <summary>
+    /// Throws GameObject at throwStrength
+    /// </summary>
     void throwObject()
     {
-        //Adds Physics Back
+        //Adds Gravity Back
         pickedUpRb.useGravity = true;
-        pickedUpRb.drag = 1;
-        pickedUpRb.constraints = RigidbodyConstraints.None;
 
         //Throws Object
         pickedUpRb.AddForce(cameraLoc.TransformDirection(Vector3.forward) * throwStrength, ForceMode.Impulse);

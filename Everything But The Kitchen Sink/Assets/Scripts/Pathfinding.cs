@@ -1,23 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Pathfinding : MonoBehaviour
 {
+    //Pathfinding component
     public NavMeshAgent navMeshAgent;
+    //Location of player
     public Transform playerLoc;
 
     public bool RunAI = false;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Initializes the navMeshAgent component and the playerLoc variables
+    /// </summary>
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         playerLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Sets the pathfinding goal to the player's location
+    /// </summary>
     void Update()
     {
         if (RunAI)
