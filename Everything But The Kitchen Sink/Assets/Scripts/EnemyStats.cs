@@ -22,7 +22,9 @@ public class EnemyStats : MonoBehaviour
     private void Update()
     {
         if (currentHealth <= 0)
+        {
             Shrink();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -45,7 +47,10 @@ public class EnemyStats : MonoBehaviour
     {
         transform.localScale -= new Vector3(shrinkSpeed, shrinkSpeed, shrinkSpeed) * Time.deltaTime;
         if (transform.localScale.magnitude < 0.1f)
+        {
+            --GameObject.Find("Enemy AI").GetComponent<EnemyAIInitialization>().currentAliveZombies;
             Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(float dmg)

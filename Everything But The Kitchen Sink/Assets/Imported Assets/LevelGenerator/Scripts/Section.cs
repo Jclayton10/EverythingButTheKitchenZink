@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using LevelGenerator.Scripts.Helpers;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace LevelGenerator.Scripts
 {
@@ -42,6 +43,10 @@ namespace LevelGenerator.Scripts
             order = sourceOrder + 1;
 
             GenerateAnnexes();
+
+            GameObject spawnersInLevel = gameObject.transform.Find("Spawners").gameObject;
+            foreach(Transform child in spawnersInLevel.transform)
+                GameObject.Find("Enemy AI").GetComponent<EnemyAIInitialization>().enemySpawners.Add(child.gameObject);
         }
 
         protected void GenerateAnnexes()

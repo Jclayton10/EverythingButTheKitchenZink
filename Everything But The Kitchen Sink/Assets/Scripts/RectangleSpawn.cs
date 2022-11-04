@@ -4,23 +4,12 @@ using UnityEngine;
 
 public class RectangleSpawn : MonoBehaviour
 {
-    public GameObject spawnPrefab;
     public Transform topCorner;
     public Transform bottomCorner;
-    public int spawnAmt;
-    public bool spawn;
 
-    // Update is called once per frame
-    void Update()
+    public void Spawn(GameObject enemyToSpawn)
     {
-        if (spawn)
-        {
-            for (int i = 0; i < spawnAmt; i++)
-            {
-                GameObject.Instantiate(spawnPrefab, new Vector3(Random.Range(topCorner.position.x, bottomCorner.position.x), transform.position.y, Random.Range(topCorner.position.z, bottomCorner.position.z)), Quaternion.Euler(0, 0, 0));
-            }
-            spawn = !spawn;
-        }
+        GameObject.Instantiate(enemyToSpawn, new Vector3(Random.Range(topCorner.position.x, bottomCorner.position.x), transform.position.y, Random.Range(topCorner.position.z, bottomCorner.position.z)), Quaternion.Euler(0, 0, 0));
     }
     void OnDrawGizmosSelected()
     {
