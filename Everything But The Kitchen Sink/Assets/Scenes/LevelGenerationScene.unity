@@ -217,14 +217,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Seed: 0
   SectionContainer: {fileID: 0}
-  MaxLevelSize: 2000
-  MaxAllowedOrder: 100
+  MaxLevelSize: 100
+  MaxAllowedOrder: 10
   Sections:
   - {fileID: 3623472050373845692, guid: e509d376ed5fb454eae4bcb0441cc884, type: 3}
   - {fileID: 1052504551316386166, guid: 82c0db837810c9c44ae2ff8ecf588074, type: 3}
   - {fileID: 4030140043530092098, guid: 59980900eb253164db0d060375e9d441, type: 3}
   - {fileID: 776125353290255454, guid: b54aed4ca2dddaa43ad5cbd2ad23db28, type: 3}
   - {fileID: 6215311927843344539, guid: 5f5538434fe0e0c4aa3341ec797008c6, type: 3}
+  - {fileID: 252258947039070469, guid: 34ac303669c41874dacf84b258c0c8e2, type: 3}
+  - {fileID: 8540573475259211131, guid: 5524c0ef5f927704c8911028119a4103, type: 3}
   DeadEnds:
   - {fileID: 521928378925245947, guid: ecfcdecaf0fd7924d9a318611a33c89b, type: 3}
   InitialSectionTags:
