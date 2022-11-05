@@ -17,6 +17,8 @@ public class EnemyStats : MonoBehaviour
     private Rigidbody rb;
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Sets the current health value to the spawn value
     /// </summary>
     private void Start()
@@ -24,6 +26,8 @@ public class EnemyStats : MonoBehaviour
         currentHealth = MaxHealth;
     }
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// If health is below or equal to 0, run the shrink function
     /// </summary>
     private void Update()
@@ -35,6 +39,8 @@ public class EnemyStats : MonoBehaviour
     }
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Checks if the zombie is hit by a carryable object. Then it deals damage to the enemy
     /// </summary>
     /// <param name="collision">Game Object the zombie is being by</param>
@@ -52,6 +58,8 @@ public class EnemyStats : MonoBehaviour
     }
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Shrink will cause the item to grow smaller. When the gameObject reaches a scale of 0, it will destroy the gameObject
     /// </summary>
     private void Shrink()
@@ -65,6 +73,8 @@ public class EnemyStats : MonoBehaviour
     }
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Lowers the currentHealth value by the inputted value
     /// </summary>
     /// <param name="dmg">Amount of Damage To Deal</param>

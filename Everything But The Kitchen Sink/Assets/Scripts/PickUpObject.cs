@@ -22,6 +22,8 @@ public class PickUpObject : MonoBehaviour
     public float throwStrength;
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// If the player clicks the left mouse button, it will pick up an object if it doesn't currently have one. Or, it will throw the object.
     /// If the left mouse button isn't clicked, it will update the item location
     /// </summary>
@@ -50,6 +52,8 @@ public class PickUpObject : MonoBehaviour
     }
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Updates the object to the location it should be held at
     /// </summary>
     void moveObject()
@@ -60,6 +64,8 @@ public class PickUpObject : MonoBehaviour
     }
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Picks up an object. Sets the pickedUpObject and pickedUpRb variables
     /// </summary>
     /// <param name="pickUpObject">Object to be picked up</param>
@@ -79,6 +85,8 @@ public class PickUpObject : MonoBehaviour
     }
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Throws GameObject at throwStrength
     /// </summary>
     void throwObject()
@@ -91,7 +99,6 @@ public class PickUpObject : MonoBehaviour
         pickedUpObject.GetComponent<Collider>().enabled = true;
 
         //Resets the references
-        pickedUpRb.transform.parent = null;
         pickedUpObject = null;
         pickedUpRb = null;
     }

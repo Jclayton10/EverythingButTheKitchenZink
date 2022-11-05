@@ -6,6 +6,8 @@ public class CircleSpawning : MonoBehaviour
     public float spawnRadius;
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Spawn the enemy within the radius of the gameObject.
     /// </summary>
     /// <param name="enemyToSpawn">Prefab of enemytype to spawn</param>

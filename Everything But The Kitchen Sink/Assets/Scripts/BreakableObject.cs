@@ -22,6 +22,8 @@ public class BreakableObject : MonoBehaviour
     private Rigidbody rb;
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Start function. Sets the rb variable to the gameObjects rigidbody component and sets currentHealth to maxHealth
     /// </summary>
     private void Start()
@@ -31,6 +33,8 @@ public class BreakableObject : MonoBehaviour
     }
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Checks if currentHealth is equal to or less than 0. If it is, it will call the shrink class.
     /// </summary>
     private void Update()
@@ -42,6 +46,8 @@ public class BreakableObject : MonoBehaviour
     }
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Lowers health of gameObject when it collides with another game object with a tag of either Enemy or Carryable
     /// </summary>
     /// <param name="collision">Game Object this Game Object collides with</param>
@@ -61,6 +67,8 @@ public class BreakableObject : MonoBehaviour
     }
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Shrink will cause the item to grow smaller. When the gameObject reaches a scale of 0, it will destroy the gameObject
     /// </summary>
     private void Shrink()
@@ -71,6 +79,8 @@ public class BreakableObject : MonoBehaviour
     }
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Lowers the currentHealth value by the inputted value
     /// </summary>
     /// <param name="dmg">Amount of Damage To Deal</param>

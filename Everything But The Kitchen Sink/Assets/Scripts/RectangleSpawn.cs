@@ -8,6 +8,8 @@ public class RectangleSpawn : MonoBehaviour
     public Transform bottomCorner;
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Spawn the enemy within the box of the GameObject
     /// </summary>
     /// <param name="enemyToSpawn">Prefab of enemytype to spawn</param>

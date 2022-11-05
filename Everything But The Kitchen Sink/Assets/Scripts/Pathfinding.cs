@@ -11,6 +11,8 @@ public class Pathfinding : MonoBehaviour
     public bool RunAI = false;
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Initializes the navMeshAgent component and the playerLoc variables
     /// </summary>
     void Start()
@@ -20,6 +22,8 @@ public class Pathfinding : MonoBehaviour
     }
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Sets the pathfinding goal to the player's location
     /// </summary>
     void Update()

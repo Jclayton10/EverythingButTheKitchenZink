@@ -21,6 +21,8 @@ public class EnemyAIInitialization : MonoBehaviour
     public bool betweenWaves = true;
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Sets timeElapsed to timeBetweenWaves. Used for initialization of scene
     /// </summary>
     public void Start()
@@ -29,6 +31,8 @@ public class EnemyAIInitialization : MonoBehaviour
     }
 
     /// <summary>
+    /// Big-O: O(1)
+    /// 
     /// Controls logic behind whether zombies should be spawned
     /// </summary>
     void Update()
@@ -51,6 +55,8 @@ public class EnemyAIInitialization : MonoBehaviour
     }
 
     /// <summary>
+    /// Big-O: O(n)
+    /// 
     /// Spawns a new wave of Zombies
     /// </summary>
     /// <param name="numOfZombs">Number of Zombies to be spawned</param>

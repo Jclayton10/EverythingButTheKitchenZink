@@ -6,6 +6,8 @@ public class WindowMechanics : MonoBehaviour
     public GameObject brokenWindow;
 
     /// <summary>
+    /// Big-O: O(n)
+    /// 
     /// Swaps to broken window object then adds an explosion to blow up the window
     /// </summary>
     /// <param name="collision">Game Object colliding with the window</param>
