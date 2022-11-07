@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class FirstPersonMovement : MonoBehaviour
 {
     public float speed = 5;
+
+    PhotonView view;
 
     [Header("Running")]
     public bool canRun = true;
@@ -21,24 +24,27 @@ public class FirstPersonMovement : MonoBehaviour
     {
         // Get the rigidbody on this.
         rb = GetComponent<Rigidbody>();
+        view = GetComponent<PhotonView>();
     }
 
     void FixedUpdate()
     {
-        // Update IsRunning from input.
-        IsRunning = canRun && Input.GetKey(runningKey);
+        if (view.IsMine) {
+            // Update IsRunning from input.
+            IsRunning = canRun && Input.GetKey(runningKey);
 
-        // Get targetMovingSpeed.
-        float targetMovingSpeed = IsRunning ? runSpeed : speed;
-        if (speedOverrides.Count > 0)
-        {
-            targetMovingSpeed = speedOverrides[speedOverrides.Count - 1]();
+            // Get targetMovingSpeed.
+            float targetMovingSpeed = IsRunning ? runSpeed : speed;
+            if (speedOverrides.Count > 0)
+            {
+                targetMovingSpeed = speedOverrides[speedOverrides.Count - 1]();
+            }
+
+            // Get targetVelocity from input.
+            Vector2 targetVelocity = new Vector2(Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
+
+            // Apply movement.
+            rb.velocity = transform.rotation * new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.y);
         }
-
-        // Get targetVelocity from input.
-        Vector2 targetVelocity =new Vector2( Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
-
-        // Apply movement.
-        rb.velocity = transform.rotation * new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.y);
     }
 }

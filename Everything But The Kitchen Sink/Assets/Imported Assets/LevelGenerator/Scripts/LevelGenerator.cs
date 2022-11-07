@@ -5,10 +5,13 @@ using LevelGenerator.Scripts.Helpers;
 using LevelGenerator.Scripts.Structure;
 using UnityEngine;
 using System.Diagnostics;
+using Photon.Pun;
+using Photon.Realtime;
+using ExitGames.Client.Photon;
 
 namespace LevelGenerator.Scripts
 {
-    public sealed class LevelGenerator : MonoBehaviour
+    public sealed class LevelGenerator : MonoBehaviourPunCallbacks, IOnEventCallback
     {
         /// <summary>
         /// LevelGenerator seed
@@ -60,22 +63,34 @@ namespace LevelGenerator.Scripts
         protected bool HalfLevelBuilt => registeredSections.Count > LevelSize;
 
         public GameObject Wall;
-        public Stopwatch stopwatch = new Stopwatch();
 
+        [PunRPC]
         protected void Start()
         {
-            stopwatch.Start();
-            if (Seed != 0)
-                RandomService.SetSeed(Seed);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                if (Seed != 0)
+                    RandomService.SetSeed(Seed);
+                else
+                    Seed = RandomService.Seed;
+
+                UnityEngine.Debug.LogError(Seed);
+                GenerateLevel();
+            }
             else
-                Seed = RandomService.Seed;
-            
+            {
+                this.SetSeed();
+            }
+        }
+
+        void GenerateLevel()
+        {
+            UnityEngine.Debug.Log(Seed);
+            RandomService.SetSeed(Seed);
             CheckRuleIntegrity();
             LevelSize = MaxLevelSize;
             CreateInitialSection();
             DeactivateBounds();
-            stopwatch.Stop();
-            UnityEngine.Debug.Log("The time in milliseconds for generation is: " + stopwatch.ElapsedMilliseconds);
         }
 
         protected void CheckRuleIntegrity()
@@ -136,6 +151,41 @@ namespace LevelGenerator.Scripts
         {
             foreach (var c in RegisteredColliders)
                 c.enabled = false;
+        }
+
+        void SetSeed()
+        { 
+            PhotonView photonView = GetComponent<PhotonView>();
+            photonView.RPC("GetSeed", RpcTarget.MasterClient);
+            UnityEngine.Debug.Log("Requested Seed");
+        }
+
+        [PunRPC]
+        void GetSeed()
+        {
+            RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
+            PhotonNetwork.RaiseEvent(1, Seed, raiseEventOptions, SendOptions.SendReliable);
+            UnityEngine.Debug.Log("Sent Seed");
+        }
+
+        private void OnEnable()
+        {
+            PhotonNetwork.AddCallbackTarget(this);
+        }
+
+        private void OnDisable()
+        {
+            PhotonNetwork.RemoveCallbackTarget(this);
+        }
+
+        public void OnEvent(EventData photonEvent)
+        {
+            byte eventCode = photonEvent.Code;
+            if(eventCode == 1)
+            {
+                Seed = (int)photonEvent.CustomData;
+                GenerateLevel();
+            }
         }
     }
 }

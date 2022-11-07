@@ -1,6 +1,7 @@
 using UnityEngine;
+using Photon.Pun;
 
-public class PickUpObject : MonoBehaviour
+public class PickUpObject : MonoBehaviourPun
 {
     [Header("Hold Settings")]
     //Location of the player camera
@@ -29,25 +30,28 @@ public class PickUpObject : MonoBehaviour
     /// </summary>
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (photonView.IsMine)
         {
-            if(pickedUpObject == null)
+            if (Input.GetMouseButtonDown(0))
             {
-                RaycastHit hit;
-                if (Physics.Raycast(cameraLoc.position, cameraLoc.TransformDirection(Vector3.forward), out hit, holdDistance))
+                if (pickedUpObject == null)
                 {
-                    if(hit.transform.gameObject.tag == "Carryable")
-                        pickupObject(hit.transform.gameObject);
+                    RaycastHit hit;
+                    if (Physics.Raycast(cameraLoc.position, cameraLoc.TransformDirection(Vector3.forward), out hit, holdDistance))
+                    {
+                        if (hit.transform.gameObject.tag == "Carryable")
+                            pickupObject(hit.transform.gameObject);
+                    }
+                }
+                else
+                {
+                    throwObject();
                 }
             }
-            else
+            if (pickedUpObject != null)
             {
-                throwObject();
+                moveObject();
             }
-        }
-        if(pickedUpObject != null)
-        {
-            moveObject();
         }
     }
 
