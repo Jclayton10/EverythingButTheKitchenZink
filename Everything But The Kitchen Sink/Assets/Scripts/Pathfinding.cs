@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,6 +8,8 @@ public class Pathfinding : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     //Location of player
     public Transform playerLoc;
+
+    public List<Transform> allPlayers;
 
     public bool RunAI = false;
 
@@ -18,7 +21,10 @@ public class Pathfinding : MonoBehaviour
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        playerLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            allPlayers.Add(player.transform);
+        }
     }
 
     /// <summary>
@@ -28,7 +34,25 @@ public class Pathfinding : MonoBehaviour
     /// </summary>
     void Update()
     {
+        float shortestDistance;
+        int playerVal;
+
+        navMeshAgent.SetDestination(allPlayers[0].position);
+        shortestDistance = navMeshAgent.remainingDistance;
+        playerVal = 0;
+
+        for(int i = 1; i<allPlayers.Count; i++)
+        {
+            navMeshAgent.SetDestination(allPlayers[i].position);
+            if(shortestDistance > navMeshAgent.remainingDistance)
+            {
+                shortestDistance = navMeshAgent.remainingDistance;
+                playerVal = i;
+            }
+        }
+
+        //This gets the closest player
         if (RunAI)
-            navMeshAgent.SetDestination(playerLoc.position);
+            navMeshAgent.SetDestination(allPlayers[playerVal].position);
     }
 }

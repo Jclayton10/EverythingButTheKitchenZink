@@ -73,19 +73,17 @@ namespace LevelGenerator.Scripts
                     RandomService.SetSeed(Seed);
                 else
                     Seed = RandomService.Seed;
-
-                UnityEngine.Debug.LogError(Seed);
                 GenerateLevel();
             }
             else
             {
                 this.SetSeed();
+                GenerateLevel();
             }
         }
 
         void GenerateLevel()
         {
-            UnityEngine.Debug.Log(Seed);
             RandomService.SetSeed(Seed);
             CheckRuleIntegrity();
             LevelSize = MaxLevelSize;
@@ -168,23 +166,12 @@ namespace LevelGenerator.Scripts
             UnityEngine.Debug.Log("Sent Seed");
         }
 
-        private void OnEnable()
-        {
-            PhotonNetwork.AddCallbackTarget(this);
-        }
-
-        private void OnDisable()
-        {
-            PhotonNetwork.RemoveCallbackTarget(this);
-        }
-
         public void OnEvent(EventData photonEvent)
         {
             byte eventCode = photonEvent.Code;
             if(eventCode == 1)
             {
                 Seed = (int)photonEvent.CustomData;
-                GenerateLevel();
             }
         }
     }

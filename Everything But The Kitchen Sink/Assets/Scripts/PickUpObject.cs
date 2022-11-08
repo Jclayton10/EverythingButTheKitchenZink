@@ -1,5 +1,6 @@
 using UnityEngine;
 using Photon.Pun;
+using ExitGames.Client.Photon;
 
 public class PickUpObject : MonoBehaviourPun
 {
@@ -75,6 +76,7 @@ public class PickUpObject : MonoBehaviourPun
     /// <param name="pickUpObject">Object to be picked up</param>
     void pickupObject(GameObject pickUpObject) 
     {
+        pickUpObject.GetComponent<PhotonView>().TransferOwnership(PhotonNetwork.LocalPlayer);
         //Makes sure that there is a rigidbody
         if (pickUpObject.GetComponent<Rigidbody>())
         {
@@ -106,4 +108,6 @@ public class PickUpObject : MonoBehaviourPun
         pickedUpObject = null;
         pickedUpRb = null;
     }
+
+    
 }

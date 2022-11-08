@@ -1,5 +1,6 @@
 using UnityEngine;
-public class EnemyStats : MonoBehaviour
+using Photon.Pun;
+public class EnemyStats : MonoBehaviourPun
 {
     //Maximum Health / Health is starts with
     public float MaxHealth;

@@ -6,9 +6,12 @@ using Photon.Realtime;
 
 public class ObjectInstantiator : MonoBehaviourPunCallbacks
 {
-    [PunRPC]
     void Start()
     {
-        GameObject spawnedCube = PhotonNetwork.Instantiate(this.name, transform.position, transform.rotation);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            GameObject spawnedCube = PhotonNetwork.Instantiate(this.name, transform.position, transform.rotation);
+        }
+        Destroy(gameObject);
     }
 }

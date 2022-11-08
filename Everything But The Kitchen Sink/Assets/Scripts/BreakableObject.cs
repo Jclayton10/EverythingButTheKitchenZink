@@ -53,6 +53,7 @@ public class BreakableObject : MonoBehaviour
     /// <param name="collision">Game Object this Game Object collides with</param>
     private void OnCollisionEnter(Collision collision)
     {
+        /*
         if (rb.velocity.magnitude > minSpeed)
         {
             if (collision.gameObject.tag == "Enemy")
@@ -64,6 +65,7 @@ public class BreakableObject : MonoBehaviour
                 TakeDamage(1);
             }
         }
+        */
     }
 
     /// <summary>

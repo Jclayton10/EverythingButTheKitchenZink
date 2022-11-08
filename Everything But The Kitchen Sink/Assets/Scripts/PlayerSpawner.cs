@@ -22,6 +22,20 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
             PlayerInstance.transform.Find("First Person Camera").GetComponent<Camera>().enabled = true;
             PlayerInstance.transform.Find("First Person Camera").GetComponent<AudioListener>().enabled = true;
         }
+
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            enemy.GetComponent<Pathfinding>().allPlayers.Add(PlayerInstance.transform);
+        }
     }
 
+    public override void OnLeftRoom()
+    {
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            enemy.GetComponent<Pathfinding>().allPlayers.Remove(PlayerInstance.transform);
+        }
+
+        base.OnLeftRoom();
+    }
 }
