@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Title Screen.unity
+    guid: 9436c380169ed7240b1c0e2e39a0bd93
+  - enabled: 1
     path: Assets/Scenes/Multiplayer.unity
     guid: a179723cbb0a34d4a8d48edba3cbcb1d
   - enabled: 1
@@ -20,4 +23,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Stormont_LevelGeneration_Testing.unity
     guid: ce65f4febfd79f143bf1b6c1736cffc2
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: b2235aea7147f3946933ab9d60c0b288
   m_configObjects: {}
