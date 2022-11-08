@@ -7,11 +7,10 @@ using UnityEngine;
 using System.Diagnostics;
 using Photon.Pun;
 using Photon.Realtime;
-using ExitGames.Client.Photon;
 
 namespace LevelGenerator.Scripts
 {
-    public sealed class LevelGenerator : MonoBehaviourPunCallbacks, IOnEventCallback
+    public sealed class LevelGenerator : MonoBehaviourPunCallbacks
     {
         /// <summary>
         /// LevelGenerator seed
@@ -73,11 +72,7 @@ namespace LevelGenerator.Scripts
                     RandomService.SetSeed(Seed);
                 else
                     Seed = RandomService.Seed;
-                GenerateLevel();
-            }
-            else
-            {
-                this.SetSeed();
+
                 GenerateLevel();
             }
         }
@@ -89,6 +84,7 @@ namespace LevelGenerator.Scripts
             LevelSize = MaxLevelSize;
             CreateInitialSection();
             DeactivateBounds();
+            CreateOnServer();
         }
 
         protected void CheckRuleIntegrity()
@@ -151,28 +147,22 @@ namespace LevelGenerator.Scripts
                 c.enabled = false;
         }
 
-        void SetSeed()
-        { 
-            PhotonView photonView = GetComponent<PhotonView>();
-            photonView.RPC("GetSeed", RpcTarget.MasterClient);
-            UnityEngine.Debug.Log("Requested Seed");
-        }
-
-        [PunRPC]
-        void GetSeed()
+        public void CreateOnServer()
         {
-            RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
-            PhotonNetwork.RaiseEvent(1, Seed, raiseEventOptions, SendOptions.SendReliable);
-            UnityEngine.Debug.Log("Sent Seed");
-        }
+            int numOfChildren = transform.childCount;
+            Transform[] transforms = transform.GetComponentsInChildren<Transform>();
 
-        public void OnEvent(EventData photonEvent)
-        {
-            byte eventCode = photonEvent.Code;
-            if(eventCode == 1)
+            for(int i = 0; i < numOfChildren; i++)
             {
-                Seed = (int)photonEvent.CustomData;
+                Transform childTransform = transforms[i];
+                if (childTransform.parent == transform)
+                {
+                    GameObject newGameObject = PhotonNetwork.Instantiate(childTransform.name, childTransform.position, childTransform.rotation);
+                    newGameObject.transform.parent = transform;
+                    Destroy(childTransform.gameObject);
+                }
             }
+            UnityEngine.Debug.Log("Initialized on Server");
         }
     }
 }

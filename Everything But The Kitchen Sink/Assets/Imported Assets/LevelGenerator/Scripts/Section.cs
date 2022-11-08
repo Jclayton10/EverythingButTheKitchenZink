@@ -43,10 +43,6 @@ namespace LevelGenerator.Scripts
             order = sourceOrder + 1;
 
             GenerateAnnexes();
-
-            GameObject spawnersInLevel = gameObject.transform.Find("Spawners").gameObject;
-            foreach(Transform child in spawnersInLevel.transform)
-                GameObject.Find("Enemy AI").GetComponent<EnemyAIInitialization>().enemySpawners.Add(child.gameObject);
         }
 
         protected void GenerateAnnexes()
@@ -83,7 +79,10 @@ namespace LevelGenerator.Scripts
             }
         }
 
-        protected void PlaceWall(Transform exit) => Instantiate(LevelGenerator.Wall, exit);
+        protected void PlaceWall(Transform exit) {
+            GameObject wall = Instantiate(LevelGenerator.Wall, exit);
+            wall.transform.parent = LevelGenerator.transform;
+        }
 
         protected void PlaceDeadEnd(Transform exit) => Instantiate(LevelGenerator.DeadEnds.PickOne(), exit).Initialize(LevelGenerator);
 

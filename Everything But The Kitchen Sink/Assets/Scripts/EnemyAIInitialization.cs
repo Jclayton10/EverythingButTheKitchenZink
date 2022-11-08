@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class EnemyAIInitialization : MonoBehaviour
 {
     //A list of all enemySpawner gameObjects
-    public List<GameObject> enemySpawners = new List<GameObject>();
+    public GameObject[] enemySpawners;
     //Enemy Prefab to be spawned
     public GameObject chooseEnemy;
     //Number of Currently Alive Zombies
@@ -64,11 +64,14 @@ public class EnemyAIInitialization : MonoBehaviour
     {
         //Sets the number of currently alive zombies
         currentAliveZombies = numOfZombs;
+
+        enemySpawners = GameObject.FindGameObjectsWithTag("Spawn Areas");
+
         //Spawns the zombies
         for(int i = 0; i<numOfZombs; i++)
         {
             //Gets a spawner to spawn the zombie at
-            GameObject chosenSpawner = enemySpawners[Random.Range(0, enemySpawners.Count - 1)];
+            GameObject chosenSpawner = enemySpawners[Random.Range(0, enemySpawners.Length - 1)];
             try
             {
                 if (chosenSpawner.GetComponent<RectangleSpawn>())
