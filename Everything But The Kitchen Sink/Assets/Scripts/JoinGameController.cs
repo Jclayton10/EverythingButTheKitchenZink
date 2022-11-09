@@ -30,9 +30,8 @@ public class JoinGameController : MonoBehaviourPunCallbacks
     {
         RoomOptions roomOptions = new RoomOptions() { MaxPlayers = 4, IsVisible = !publicOrPrivate, EmptyRoomTtl = 0 };
         //Public Room
-        if (!publicOrPrivate)
-            PhotonNetwork.JoinOrCreateRoom(serverName, roomOptions, null);
-        if(serverName == null)
+        PhotonNetwork.JoinOrCreateRoom(serverName, roomOptions, null);
+        if(serverName == "Server Name" || serverName == null)
         {
             PhotonNetwork.JoinRandomOrCreateRoom();
         }
