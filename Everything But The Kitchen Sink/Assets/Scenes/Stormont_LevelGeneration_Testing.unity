@@ -217,8 +217,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Seed: 0
   SectionContainer: {fileID: 0}
-  MaxLevelSize: 400
-  MaxAllowedOrder: 100
+  MaxLevelSize: 300
+  MaxAllowedOrder: 40
   Sections:
   - {fileID: 3623472050373845692, guid: e509d376ed5fb454eae4bcb0441cc884, type: 3}
   - {fileID: 1052504551316386166, guid: 82c0db837810c9c44ae2ff8ecf588074, type: 3}
@@ -227,6 +227,7 @@ MonoBehaviour:
   - {fileID: 6215311927843344539, guid: 5f5538434fe0e0c4aa3341ec797008c6, type: 3}
   - {fileID: 252258947039070469, guid: 34ac303669c41874dacf84b258c0c8e2, type: 3}
   - {fileID: 8540573475259211131, guid: 5524c0ef5f927704c8911028119a4103, type: 3}
+  - {fileID: 7412474062190694581, guid: 733de3a468cdbc64a9fbb9b0d2813f39, type: 3}
   DeadEnds:
   - {fileID: 521928378925245947, guid: ecfcdecaf0fd7924d9a318611a33c89b, type: 3}
   InitialSectionTags:
@@ -281,7 +282,7 @@ MonoBehaviour:
   enemySpawners: []
   chooseEnemy: {fileID: 496458141012997800, guid: 560afcb9ccd61594a8c3f11354473f90, type: 3}
   currentAliveZombies: 0
-  waveSpawnAmt: 1
+  waveSpawnAmt: 20
   timeBetweenWaves: 5
   timeElapsed: 0
   betweenWaves: 1
