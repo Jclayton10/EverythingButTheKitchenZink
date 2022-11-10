@@ -136,11 +136,11 @@ GameObject:
   - component: {fileID: 828116941}
   m_Layer: 0
   m_Name: Enemy AI
-  m_TagString: Untagged
+  m_TagString: Enemy AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &828116939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &828116941
 MonoBehaviour:
@@ -203,7 +203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8357756705456487802, guid: 4a141bb942b717347b99f91774314a05, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8357756705456487802, guid: 4a141bb942b717347b99f91774314a05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -285,6 +285,7 @@ MonoBehaviour:
   pView: {fileID: 0}
   PlayerInstance: {fileID: 0}
   Camera: {fileID: 0}
+  EnemyAI: {fileID: 828116938}
 --- !u!4 &1166993996
 Transform:
   m_ObjectHideFlags: 0
@@ -298,7 +299,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &1999056517
 LightingSettings:

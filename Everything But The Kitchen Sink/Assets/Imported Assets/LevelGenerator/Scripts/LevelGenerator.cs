@@ -63,7 +63,6 @@ namespace LevelGenerator.Scripts
 
         public GameObject Wall;
 
-        [PunRPC]
         protected void Start()
         {
             if (PhotonNetwork.IsMasterClient)
@@ -84,7 +83,6 @@ namespace LevelGenerator.Scripts
             LevelSize = MaxLevelSize;
             CreateInitialSection();
             DeactivateBounds();
-            CreateOnServer();
         }
 
         protected void CheckRuleIntegrity()
@@ -96,7 +94,10 @@ namespace LevelGenerator.Scripts
             }
         }
 
-        protected void CreateInitialSection() => Instantiate(PickSectionWithTag(InitialSectionTags), transform).Initialize(this, 0);
+        protected void CreateInitialSection()
+        {
+            Instantiate(PickSectionWithTag(InitialSectionTags), transform).Initialize(this, 0);
+        }
 
         public void AddSectionTemplate() => Instantiate(Resources.Load("SectionTemplate"), Vector3.zero, Quaternion.identity);
         public void AddDeadEndTemplate() => Instantiate(Resources.Load("DeadEndTemplate"), Vector3.zero, Quaternion.identity);
@@ -145,24 +146,6 @@ namespace LevelGenerator.Scripts
         {
             foreach (var c in RegisteredColliders)
                 c.enabled = false;
-        }
-
-        public void CreateOnServer()
-        {
-            int numOfChildren = transform.childCount;
-            Transform[] transforms = transform.GetComponentsInChildren<Transform>();
-
-            for(int i = 0; i < numOfChildren; i++)
-            {
-                Transform childTransform = transforms[i];
-                if (childTransform.parent == transform)
-                {
-                    GameObject newGameObject = PhotonNetwork.Instantiate(childTransform.name, childTransform.position, childTransform.rotation);
-                    newGameObject.transform.parent = transform;
-                    Destroy(childTransform.gameObject);
-                }
-            }
-            UnityEngine.Debug.Log("Initialized on Server");
         }
     }
 }

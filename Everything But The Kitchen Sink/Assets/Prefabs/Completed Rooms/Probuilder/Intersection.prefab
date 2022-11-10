@@ -912,6 +912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5438606899604799561}
   - component: {fileID: 252258947039070469}
+  - component: {fileID: 96694818433795187}
   m_Layer: 0
   m_Name: Intersection
   m_TagString: Untagged
@@ -969,6 +970,18 @@ MonoBehaviour:
   Exits: {fileID: 1564954862778018244}
   Bounds: {fileID: 7277858107163494758}
   DeadEndChance: 25
+--- !u!114 &96694818433795187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6207600955677760220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8f1ad579587e941b464be860fb03d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6224050897354216564
 GameObject:
   m_ObjectHideFlags: 0

@@ -1197,6 +1197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4503549425254241335}
   - component: {fileID: 8540573475259211131}
+  - component: {fileID: -9091282019455055652}
   m_Layer: 0
   m_Name: Slight Decline Corridor
   m_TagString: Untagged
@@ -1251,6 +1252,18 @@ MonoBehaviour:
   Exits: {fileID: 6967583579756314042}
   Bounds: {fileID: 1154653363874438424}
   DeadEndChance: 0
+--- !u!114 &-9091282019455055652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2532103056306409122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8f1ad579587e941b464be860fb03d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2837270801460602468
 GameObject:
   m_ObjectHideFlags: 0

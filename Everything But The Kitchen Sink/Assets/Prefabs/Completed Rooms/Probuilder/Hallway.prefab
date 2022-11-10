@@ -864,6 +864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5071857284799445050}
   - component: {fileID: 1052504551316386166}
+  - component: {fileID: 8260083243829081920}
   m_Layer: 0
   m_Name: Hallway
   m_TagString: Untagged
@@ -913,6 +914,18 @@ MonoBehaviour:
   Exits: {fileID: 1778039335237128631}
   Bounds: {fileID: 7501640313437499669}
   DeadEndChance: 0
+--- !u!114 &8260083243829081920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6574938054363980463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8f1ad579587e941b464be860fb03d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6998868043458205929
 GameObject:
   m_ObjectHideFlags: 0

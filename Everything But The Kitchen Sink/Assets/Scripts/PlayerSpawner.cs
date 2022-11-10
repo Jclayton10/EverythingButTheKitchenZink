@@ -1,6 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
 
 public class PlayerSpawner : MonoBehaviourPunCallbacks
 {
@@ -8,6 +9,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     public PhotonView pView;
     public GameObject PlayerInstance;
     public GameObject Camera;
+    public GameObject EnemyAI;
 
     [PunRPC]
     public void Start()
@@ -27,6 +29,8 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         {
             enemy.GetComponent<Pathfinding>().allPlayers.Add(PlayerInstance.transform);
         }
+
+        EnemyAI.SetActive(true);
     }
 
     public override void OnLeftRoom()

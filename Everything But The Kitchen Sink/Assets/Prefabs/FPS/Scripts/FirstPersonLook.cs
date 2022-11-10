@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
+using Photon.Pun;
 
-public class FirstPersonLook : MonoBehaviour
+public class FirstPersonLook : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     Transform character;
     public float sensitivity = 2;
     public float smoothing = 1.5f;
+    public GameObject canvas;
 
     Vector2 velocity;
     Vector2 frameVelocity;
@@ -21,6 +23,11 @@ public class FirstPersonLook : MonoBehaviour
     {
         // Lock the mouse cursor to the game screen.
         Cursor.lockState = CursorLockMode.Locked;
+        if (photonView.IsMine)
+        {
+            transform.Find("Camera").GetComponent<Camera>().enabled = true;
+            canvas.SetActive(true);
+        }
     }
 
     void Update()

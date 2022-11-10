@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Photon.Pun;
 
-public class Pathfinding : MonoBehaviour
+public class Pathfinding : MonoBehaviourPunCallbacks
 {
     //Pathfinding component
     public NavMeshAgent navMeshAgent;
@@ -20,10 +21,16 @@ public class Pathfinding : MonoBehaviour
     /// </summary>
     void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        if (PhotonNetwork.IsMasterClient)
         {
-            allPlayers.Add(player.transform);
+            if (GameObject.Find("Enemy AI").activeSelf)
+            {
+                navMeshAgent = GetComponent<NavMeshAgent>();
+                foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    allPlayers.Add(player.transform);
+                }
+            }
         }
     }
 
@@ -34,25 +41,27 @@ public class Pathfinding : MonoBehaviour
     /// </summary>
     void Update()
     {
-        float shortestDistance;
-        int playerVal;
-
-        navMeshAgent.SetDestination(allPlayers[0].position);
-        shortestDistance = navMeshAgent.remainingDistance;
-        playerVal = 0;
-
-        for(int i = 1; i<allPlayers.Count; i++)
+        if (PhotonNetwork.IsMasterClient && RunAI)
         {
-            navMeshAgent.SetDestination(allPlayers[i].position);
-            if(shortestDistance > navMeshAgent.remainingDistance)
-            {
-                shortestDistance = navMeshAgent.remainingDistance;
-                playerVal = i;
-            }
-        }
+            float shortestDistance;
+            int playerVal;
 
-        //This gets the closest player
-        if (RunAI)
+            navMeshAgent.SetDestination(allPlayers[0].position);
+            shortestDistance = navMeshAgent.remainingDistance;
+            playerVal = 0;
+
+            for (int i = 1; i < allPlayers.Count; i++)
+            {
+                navMeshAgent.SetDestination(allPlayers[i].position);
+                if (shortestDistance > navMeshAgent.remainingDistance)
+                {
+                    shortestDistance = navMeshAgent.remainingDistance;
+                    playerVal = i;
+                }
+            }
+
+            //This gets the closest player
             navMeshAgent.SetDestination(allPlayers[playerVal].position);
+        }
     }
 }

@@ -1866,6 +1866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2410395230091178972}
   - component: {fileID: 4030140043530092098}
+  - component: {fileID: 7225312392239655460}
   m_Layer: 0
   m_Name: Railing Room
   m_TagString: Untagged
@@ -1931,6 +1932,18 @@ MonoBehaviour:
   Exits: {fileID: 6274136068586739086}
   Bounds: {fileID: 7085142340832052067}
   DeadEndChance: 5
+--- !u!114 &7225312392239655460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3138915202193497183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8f1ad579587e941b464be860fb03d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3670649502015670261
 GameObject:
   m_ObjectHideFlags: 0

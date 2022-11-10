@@ -1900,6 +1900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1548018268685785844}
   - component: {fileID: 521928378925245947}
+  - component: {fileID: -2817531038840940102}
   m_Layer: 0
   m_Name: CollegeRoomA
   m_TagString: Untagged
@@ -1938,6 +1939,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bounds: {fileID: 6152299867550129137}
+--- !u!114 &-2817531038840940102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548018268685785845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8f1ad579587e941b464be860fb03d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5693470740712416321
 GameObject:
   m_ObjectHideFlags: 0

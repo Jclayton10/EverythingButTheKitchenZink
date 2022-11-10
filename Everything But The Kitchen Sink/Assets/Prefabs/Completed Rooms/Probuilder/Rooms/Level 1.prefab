@@ -1279,6 +1279,7 @@ GameObject:
   - component: {fileID: 8432120245949420093}
   - component: {fileID: 8432120245949420092}
   - component: {fileID: 8432120245949420095}
+  - component: {fileID: 7456656338393998185}
   m_Layer: 0
   m_Name: Cube (6)
   m_TagString: Untagged
@@ -3611,6 +3612,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &7456656338393998185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8432120245949420094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e038bf700cfa444fb16c6ef963be9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8432120246159733671
 GameObject:
   m_ObjectHideFlags: 0
@@ -5885,6 +5898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8432120246420805275}
   - component: {fileID: 3623472050373845692}
+  - component: {fileID: 4506140386535573203}
   m_Layer: 0
   m_Name: Level 1
   m_TagString: Untagged
@@ -5936,6 +5950,18 @@ MonoBehaviour:
   Exits: {fileID: 3859117998297751581}
   Bounds: {fileID: 1353401346392078174}
   DeadEndChance: 10
+--- !u!114 &4506140386535573203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8432120246420805274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8f1ad579587e941b464be860fb03d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8432120246582137864
 GameObject:
   m_ObjectHideFlags: 0

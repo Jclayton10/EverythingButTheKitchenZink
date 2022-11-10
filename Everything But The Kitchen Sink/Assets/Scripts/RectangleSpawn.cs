@@ -1,6 +1,7 @@
 using UnityEngine;
+using Photon.Pun;
 
-public class RectangleSpawn : MonoBehaviour
+public class RectangleSpawn : MonoBehaviourPunCallbacks
 {
     //Top Left Corner of the Rectangle Spawner
     public Transform topCorner;
@@ -15,6 +16,16 @@ public class RectangleSpawn : MonoBehaviour
     /// <param name="enemyToSpawn">Prefab of enemytype to spawn</param>
     public void Spawn(GameObject enemyToSpawn)
     {
-        GameObject.Instantiate(enemyToSpawn, new Vector3(Random.Range(topCorner.position.x, bottomCorner.position.x), transform.position.y, Random.Range(topCorner.position.z, bottomCorner.position.z)), Quaternion.Euler(0, 0, 0));
+        //Only spawns if it is the host
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log("This is the master client");
+            GameObject.Instantiate(enemyToSpawn, new Vector3(Random.Range(topCorner.position.x, bottomCorner.position.x), transform.position.y, Random.Range(topCorner.position.z, bottomCorner.position.z)), Quaternion.Euler(0, 0, 0));
+            foreach(Transform child in enemyToSpawn.transform)
+            {
+                PhotonNetwork.Instantiate(child.name, child.position, child.rotation);
+                GameObject.Destroy(child.gameObject);
+            }
+        }
     }
 }

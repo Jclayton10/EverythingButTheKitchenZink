@@ -53,19 +53,20 @@ public class BreakableObject : MonoBehaviour
     /// <param name="collision">Game Object this Game Object collides with</param>
     private void OnCollisionEnter(Collision collision)
     {
-        /*
-        if (rb.velocity.magnitude > minSpeed)
+        if (collision.gameObject.tag == "Carryable" || collision.gameObject.tag == "Enemy")
         {
-            if (collision.gameObject.tag == "Enemy")
+            if (rb.velocity.magnitude > minSpeed)
             {
-                TakeDamage(2);
-            }
-            else if (collision.gameObject.tag != "Carryable")
-            {
-                TakeDamage(1);
+                if (collision.gameObject.tag == "Enemy")
+                {
+                    TakeDamage(2);
+                }
+                else if (collision.gameObject.tag != "Carryable")
+                {
+                    TakeDamage(1);
+                }
             }
         }
-        */
     }
 
     /// <summary>
