@@ -1,7 +1,7 @@
-using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
+using UnityEngine;
 
 public class JoinGameController : MonoBehaviourPunCallbacks
 {
@@ -31,7 +31,7 @@ public class JoinGameController : MonoBehaviourPunCallbacks
         RoomOptions roomOptions = new RoomOptions() { MaxPlayers = 4, IsVisible = !publicOrPrivate, EmptyRoomTtl = 0 };
         //Public Room
         PhotonNetwork.JoinOrCreateRoom(serverName, roomOptions, null);
-        if(serverName == "Server Name" || serverName == null)
+        if (serverName == "Server Name" || serverName == null)
         {
             PhotonNetwork.JoinRandomOrCreateRoom();
         }

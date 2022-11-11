@@ -11,12 +11,12 @@ namespace Unity.AI.Navigation.Samples
     {
         NavMeshAgent m_Agent;
         RaycastHit m_HitInfo = new RaycastHit();
-    
+
         void Start()
         {
             m_Agent = GetComponent<NavMeshAgent>();
         }
-    
+
         void Update()
         {
             if (Input.GetMouseButtonDown(0) && !Input.GetKey(KeyCode.LeftShift))

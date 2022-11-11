@@ -21,6 +21,8 @@ public class BreakableObject : MonoBehaviour
     //Rigidbody of GameObject
     private Rigidbody rb;
 
+    public GameObject player;
+
     /// <summary>
     /// Big-O: O(1)
     /// 
@@ -39,7 +41,7 @@ public class BreakableObject : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             Shrink();
         }
@@ -53,18 +55,16 @@ public class BreakableObject : MonoBehaviour
     /// <param name="collision">Game Object this Game Object collides with</param>
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Carryable" || collision.gameObject.tag == "Enemy")
+        Debug.Log("Collided");
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "Enemy")
         {
+            Debug.Log("true");
             if (rb.velocity.magnitude > minSpeed)
             {
-                if (collision.gameObject.tag == "Enemy")
-                {
-                    TakeDamage(2);
-                }
-                else if (collision.gameObject.tag != "Carryable")
-                {
-                    TakeDamage(1);
-                }
+                Debug.Log(player);
+                TakeDamage(2);
+                collision.gameObject.GetComponent<EnemyStats>().killer = player;
             }
         }
     }

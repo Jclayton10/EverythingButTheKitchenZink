@@ -20,7 +20,7 @@ namespace Unity.AI.Navigation.Samples.Editor
 
         public override void OnInspectorGUI()
         {
-            var instance = (NavMeshPrefabInstance) target;
+            var instance = (NavMeshPrefabInstance)target;
             var go = instance.gameObject;
 
             serializedObject.Update();
@@ -85,7 +85,7 @@ namespace Unity.AI.Navigation.Samples.Editor
         {
             foreach (var tgt in targets)
             {
-                var instance = (NavMeshPrefabInstance) tgt;
+                var instance = (NavMeshPrefabInstance)tgt;
                 var go = instance.gameObject;
                 var prefab = PrefabUtility.GetPrefabInstanceHandle(go);
                 var path = AssetDatabase.GetAssetPath(prefab);
@@ -105,7 +105,7 @@ namespace Unity.AI.Navigation.Samples.Editor
         {
             foreach (var tgt in targets)
             {
-                var instance = (NavMeshPrefabInstance) tgt;
+                var instance = (NavMeshPrefabInstance)tgt;
                 var go = instance.gameObject;
                 var prefab = PrefabUtility.GetPrefabInstanceHandle(go);
                 var path = AssetDatabase.GetAssetPath(prefab);

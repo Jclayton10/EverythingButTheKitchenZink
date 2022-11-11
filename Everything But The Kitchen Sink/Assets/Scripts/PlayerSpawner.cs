@@ -1,7 +1,5 @@
-using UnityEngine;
 using Photon.Pun;
-using Photon.Realtime;
-using UnityEngine.UI;
+using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviourPunCallbacks
 {

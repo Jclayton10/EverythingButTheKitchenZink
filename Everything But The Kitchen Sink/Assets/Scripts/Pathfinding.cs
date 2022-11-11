@@ -1,7 +1,7 @@
+using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using Photon.Pun;
 
 public class Pathfinding : MonoBehaviourPunCallbacks
 {

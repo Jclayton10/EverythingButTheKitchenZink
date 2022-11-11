@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Unity.AI.Navigation.Samples
 {
@@ -15,14 +15,14 @@ namespace Unity.AI.Navigation.Samples
         public bool m_RandomPosition = true;
         public bool m_RandomOrientation = true;
         public float m_Height;
-    
+
         public int m_BaseHash = 347652783;
         public float m_Size = 100.0f;
-    
+
         List<Transform> m_Instances = new List<Transform>();
         int m_Used;
         int m_LocX, m_LocZ;
-    
+
         void Awake()
         {
             for (int i = 0; i < m_PoolSize; ++i)
@@ -32,14 +32,14 @@ namespace Unity.AI.Navigation.Samples
                 m_Instances.Add(go.transform);
             }
         }
-    
+
         void OnEnable()
         {
             m_LocX = ~0;
             m_LocZ = ~0;
             UpdateInstances();
         }
-    
+
         void OnDestroy()
         {
             for (int i = 0; i < m_Instances.Count; ++i)
@@ -49,22 +49,22 @@ namespace Unity.AI.Navigation.Samples
             }
             m_Instances.Clear();
         }
-    
+
         void Update()
         {
             UpdateInstances();
         }
-    
+
         void UpdateInstances()
         {
             var x = (int)Mathf.Floor(transform.position.x / m_Size);
             var z = (int)Mathf.Floor(transform.position.z / m_Size);
             if (x == m_LocX && z == m_LocZ)
                 return;
-    
+
             m_LocX = x;
             m_LocZ = z;
-    
+
             m_Used = 0;
             for (var i = x - 2; i <= x + 2; ++i)
             {
@@ -75,13 +75,13 @@ namespace Unity.AI.Navigation.Samples
                         return;
                 }
             }
-    
+
             // Deactivate the remaining active elements in the pool.
             // Here we assume all active elements are contiguous and first in the list.
             for (int i = m_Used; i < m_PoolSize && m_Instances[i].gameObject.activeSelf; ++i)
                 m_Instances[i].gameObject.SetActive(false);
         }
-    
+
         int UpdateTileInstances(int i, int j)
         {
             var seed = Hash2(i, j) ^ m_BaseHash;
@@ -90,14 +90,14 @@ namespace Unity.AI.Navigation.Samples
             {
                 float x = 0;
                 float y = 0;
-    
+
                 if (m_RandomPosition)
                 {
                     x = Random(ref seed);
                     y = Random(ref seed);
                 }
                 var pos = new Vector3((i + x) * m_Size, m_Height, (j + y) * m_Size);
-    
+
                 if (m_RandomOrientation)
                 {
                     float r = 360.0f * Random(ref seed);
@@ -106,18 +106,18 @@ namespace Unity.AI.Navigation.Samples
                 m_Instances[m_Used].position = pos;
                 m_Instances[m_Used].gameObject.SetActive(true);
             }
-    
+
             if (count < m_InstancesPerTile)
                 Debug.LogWarning("Pool exhausted", this);
-    
+
             return count;
         }
-    
+
         static int Hash2(int i, int j)
         {
             return (i * 73856093) ^ (j * 19349663);
         }
-    
+
         static float Random(ref int seed)
         {
             seed = (seed ^ 123459876);

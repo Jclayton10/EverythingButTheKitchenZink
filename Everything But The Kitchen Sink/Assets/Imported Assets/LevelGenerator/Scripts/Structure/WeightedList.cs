@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using LevelGenerator.Scripts.Helpers;
+using System.Collections.Generic;
 using System.Linq;
-using LevelGenerator.Scripts.Helpers;
 
 namespace LevelGenerator.Scripts.Structure
 {

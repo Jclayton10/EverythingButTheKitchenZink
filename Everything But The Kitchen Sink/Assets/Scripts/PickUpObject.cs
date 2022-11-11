@@ -1,6 +1,5 @@
-using UnityEngine;
 using Photon.Pun;
-using ExitGames.Client.Photon;
+using UnityEngine;
 
 public class PickUpObject : MonoBehaviourPun
 {
@@ -38,10 +37,21 @@ public class PickUpObject : MonoBehaviourPun
                 if (pickedUpObject == null)
                 {
                     RaycastHit hit;
+                    
                     if (Physics.Raycast(cameraLoc.position, cameraLoc.TransformDirection(Vector3.forward), out hit, holdDistance))
                     {
+                        if (hit.collider.gameObject.tag == "Door" && GetComponent<PlayerStats>().score >= GameObject.Find("Global Stats").GetComponent<GlobalStats>().costForRoom)
+                        {
+                            GetComponent<PlayerStats>().score -= GameObject.Find("Global Stats").GetComponent<GlobalStats>().costForRoom;
+                            hit.collider.transform.parent.parent.parent.GetComponent<UnlockRoom>().unlock();
+                            
+                            return;
+                        }
                         if (hit.transform.gameObject.tag == "Carryable")
+                        {
+                            hit.transform.gameObject.GetComponent<BreakableObject>().player = gameObject;
                             pickupObject(hit.transform.gameObject);
+                        }
                     }
                 }
                 else
@@ -74,7 +84,7 @@ public class PickUpObject : MonoBehaviourPun
     /// Picks up an object. Sets the pickedUpObject and pickedUpRb variables
     /// </summary>
     /// <param name="pickUpObject">Object to be picked up</param>
-    void pickupObject(GameObject pickUpObject) 
+    void pickupObject(GameObject pickUpObject)
     {
         pickUpObject.GetComponent<PhotonView>().TransferOwnership(PhotonNetwork.LocalPlayer);
         //Makes sure that there is a rigidbody
@@ -109,5 +119,5 @@ public class PickUpObject : MonoBehaviourPun
         pickedUpRb = null;
     }
 
-    
+
 }

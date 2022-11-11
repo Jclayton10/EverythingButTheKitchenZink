@@ -12,7 +12,7 @@ namespace LevelGenerator.Scripts.Helpers
         {
             rnd = new Random();
             Seed = rnd.Next(Int32.MinValue, Int32.MaxValue);
-            
+
             rnd = new Random(Seed);
         }
 

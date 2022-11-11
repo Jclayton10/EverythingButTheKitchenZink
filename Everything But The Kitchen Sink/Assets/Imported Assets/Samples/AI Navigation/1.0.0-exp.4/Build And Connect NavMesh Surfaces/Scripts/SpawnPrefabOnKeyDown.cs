@@ -9,7 +9,7 @@ namespace Unity.AI.Navigation.Samples
     {
         public GameObject m_Prefab;
         public KeyCode m_KeyCode;
-    
+
         void Update()
         {
             if (Input.GetKeyDown(m_KeyCode) && m_Prefab != null)

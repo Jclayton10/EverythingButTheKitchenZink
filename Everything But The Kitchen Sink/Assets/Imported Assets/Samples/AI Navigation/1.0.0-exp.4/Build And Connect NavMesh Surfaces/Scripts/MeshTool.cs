@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Unity.AI.Navigation.Samples
 {
@@ -13,20 +13,20 @@ namespace Unity.AI.Navigation.Samples
             Vertical,
             MeshNormal
         }
-    
+
         public List<MeshFilter> m_Filters = new List<MeshFilter>();
         public float m_Radius = 1.5f;
         public float m_Power = 2.0f;
         public ExtrudeMethod m_Method = ExtrudeMethod.Vertical;
-    
+
         RaycastHit m_HitInfo = new RaycastHit();
-    
+
         void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-    
+
         void Update()
         {
             var ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
@@ -34,30 +34,30 @@ namespace Unity.AI.Navigation.Samples
             {
                 Debug.DrawRay(m_HitInfo.point, m_HitInfo.normal, Color.red);
                 Vector3 displacement = (m_Method == ExtrudeMethod.Vertical) ? Vector3.up : m_HitInfo.normal;
-    
+
                 if (Input.GetMouseButton(0) || (Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.LeftShift)))
                     ModifyMesh(m_Power * displacement, m_HitInfo.point);
                 if (Input.GetMouseButton(1) || (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.LeftShift)))
                     ModifyMesh(-m_Power * displacement, m_HitInfo.point);
             }
         }
-    
+
         void ModifyMesh(Vector3 displacement, Vector3 center)
         {
             foreach (var filter in m_Filters)
             {
                 Mesh mesh = filter.mesh;
                 Vector3[] vertices = mesh.vertices;
-    
+
                 for (int i = 0; i < vertices.Length; ++i)
                 {
                     Vector3 v = filter.transform.TransformPoint(vertices[i]);
                     vertices[i] = vertices[i] + displacement * Gaussian(v, center, m_Radius);
                 }
-    
+
                 mesh.vertices = vertices;
                 mesh.RecalculateBounds();
-    
+
                 var col = filter.GetComponent<MeshCollider>();
                 if (col != null)
                 {
@@ -68,7 +68,7 @@ namespace Unity.AI.Navigation.Samples
                 }
             }
         }
-    
+
         static float Gaussian(Vector3 pos, Vector3 mean, float dev)
         {
             float x = pos.x - mean.x;

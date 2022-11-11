@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using LevelGenerator.Scripts.Helpers;
+﻿using LevelGenerator.Scripts.Helpers;
+using System.Linq;
 using UnityEngine;
-using System.Collections.Generic;
 
 namespace LevelGenerator.Scripts
 {
@@ -34,7 +33,7 @@ namespace LevelGenerator.Scripts
 
         protected LevelGenerator LevelGenerator;
         protected int order;
-        
+
         public void Initialize(LevelGenerator levelGenerator, int sourceOrder)
         {
             LevelGenerator = levelGenerator;
@@ -67,7 +66,7 @@ namespace LevelGenerator.Scripts
             var candidate = IsAdvancedExit(exit)
                 ? BuildSectionFromExit(exit.GetComponent<AdvancedExit>())
                 : BuildSectionFromExit(exit);
-                
+
             if (LevelGenerator.IsSectionValid(candidate.Bounds, Bounds))
             {
                 candidate.Initialize(LevelGenerator, order);
@@ -79,7 +78,8 @@ namespace LevelGenerator.Scripts
             }
         }
 
-        protected void PlaceWall(Transform exit) {
+        protected void PlaceWall(Transform exit)
+        {
             GameObject wall = Instantiate(LevelGenerator.Wall, exit);
             wall.transform.parent = LevelGenerator.transform;
         }

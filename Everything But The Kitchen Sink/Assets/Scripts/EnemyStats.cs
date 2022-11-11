@@ -1,5 +1,5 @@
-using UnityEngine;
 using Photon.Pun;
+using UnityEngine;
 public class EnemyStats : MonoBehaviourPun
 {
     //Maximum Health / Health is starts with
@@ -16,6 +16,12 @@ public class EnemyStats : MonoBehaviourPun
     public float minSpeed;
     //Rigidbody of Object Colliding with it
     private Rigidbody rb;
+
+    //Player who killed the zombie
+    public GameObject killer;
+
+    //Points gained when it's killed
+    public int KillPoints;
 
     /// <summary>
     /// Big-O: O(1)
@@ -52,7 +58,7 @@ public class EnemyStats : MonoBehaviourPun
             rb = collision.gameObject.GetComponent<Rigidbody>();
             if (rb.velocity.magnitude > minSpeed)
             {
-                if(collision.gameObject.GetComponent<BreakableObject>())
+                if (collision.gameObject.GetComponent<BreakableObject>())
                     TakeDamage(collision.gameObject.GetComponent<BreakableObject>().damage);
             }
         }
@@ -69,7 +75,8 @@ public class EnemyStats : MonoBehaviourPun
         if (transform.localScale.magnitude < 0.1f)
         {
             --GameObject.Find("Enemy AI").GetComponent<EnemyAIInitialization>().currentAliveZombies;
-            Destroy(gameObject);
+            killer.GetComponent<PlayerStats>().IncreaseScore(KillPoints);
+            Destroy(transform.parent.gameObject);
         }
     }
 

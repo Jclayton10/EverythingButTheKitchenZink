@@ -13,13 +13,13 @@ public class WindowMechanics : MonoBehaviour
     /// <param name="collision">Game Object colliding with the window</param>
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Carryable")
+        if (collision.gameObject.tag == "Carryable")
         {
             //Turns on the broken window
             brokenWindow.SetActive(true);
 
             //Adds an explosion to each part of the window
-            foreach(Rigidbody child in brokenWindow.GetComponentsInChildren<Rigidbody>())
+            foreach (Rigidbody child in brokenWindow.GetComponentsInChildren<Rigidbody>())
             {
                 child.AddExplosionForce(500f, collision.transform.position, 1f);
             }

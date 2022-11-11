@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using Photon.Pun;
 
 public class EnemyAIInitialization : MonoBehaviour
 {
@@ -43,13 +41,13 @@ public class EnemyAIInitialization : MonoBehaviour
             timeElapsed = timeBetweenWaves;
             betweenWaves = true;
         }
-        if(timeElapsed < 0 && betweenWaves == true)
+        if (timeElapsed < 0 && betweenWaves == true)
         {
             SpawnWave(waveSpawnAmt);
             betweenWaves = false;
             timeElapsed = 0;
         }
-        if(timeElapsed > 0)
+        if (timeElapsed > 0)
         {
             timeElapsed -= Time.deltaTime;
         }
@@ -67,12 +65,21 @@ public class EnemyAIInitialization : MonoBehaviour
         currentAliveZombies = numOfZombs;
 
         enemySpawners = GameObject.FindGameObjectsWithTag("Spawn Areas");
+        List<GameObject> usableEnemySpawners = new List<GameObject>();
+        foreach (GameObject enemySpawner in enemySpawners)
+        {
+            if (enemySpawner.GetComponent<RectangleSpawn>().enabled)
+                usableEnemySpawners.Add(enemySpawner);
+        }
+
+
 
         //Spawns the zombies
-        for(int i = 0; i<numOfZombs; i++)
+        for (int i = 0; i < numOfZombs; i++)
         {
             //Gets a spawner to spawn the zombie at
-            GameObject chosenSpawner = enemySpawners[Random.Range(0, enemySpawners.Length - 1)];
+            GameObject chosenSpawner = usableEnemySpawners[Random.Range(0, usableEnemySpawners.Count - 1)];
+
             try
             {
                 if (chosenSpawner.GetComponent<RectangleSpawn>())

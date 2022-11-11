@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Photon.Pun;
+using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 public class FirstPersonMovement : MonoBehaviour
 {
@@ -29,7 +29,8 @@ public class FirstPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (view.IsMine) {
+        if (view.IsMine)
+        {
             // Update IsRunning from input.
             IsRunning = canRun && Input.GetKey(runningKey);
 
