@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 912662583582662750}
   - component: {fileID: 2213584063884304357}
   m_Layer: 0
-  m_Name: Zombert(Clone)
+  m_Name: Zombert
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
