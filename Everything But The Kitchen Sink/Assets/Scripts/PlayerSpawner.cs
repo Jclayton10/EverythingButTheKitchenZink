@@ -21,6 +21,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
             PlayerInstance.GetComponent<Crouch>().enabled = true;
             PlayerInstance.transform.Find("First Person Camera").GetComponent<Camera>().enabled = true;
             PlayerInstance.transform.Find("First Person Camera").GetComponent<AudioListener>().enabled = true;
+            PlayerInstance.transform.Find("Player_Full_2").Find("default").gameObject.layer = LayerMask.NameToLayer("This Player");
         }
 
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
