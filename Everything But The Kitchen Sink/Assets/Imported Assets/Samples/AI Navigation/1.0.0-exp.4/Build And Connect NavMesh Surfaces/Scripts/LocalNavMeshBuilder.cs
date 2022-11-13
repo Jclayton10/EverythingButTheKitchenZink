@@ -10,7 +10,7 @@ namespace Unity.AI.Navigation.Samples
     /// Build and update a localized navmesh from the sources marked by NavMeshSourceTag 
     /// </summary>
     [DefaultExecutionOrder(-102)]
-    public class LocalNavMeshBuilder : MonoBehaviour
+    public sealed class LocalNavMeshBuilder : MonoBehaviour
     {
         /// <summary>
         /// The center of the build 
