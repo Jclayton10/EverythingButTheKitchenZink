@@ -47,6 +47,11 @@ public class PickUpObject : MonoBehaviourPun
                             
                             return;
                         }
+                        if (hit.transform.gameObject.tag == "Sink")
+                        {
+                            Debug.Log("Clicked On Sink");
+                            hit.transform.GetComponent<Sink>().Teleport();
+                        }
                         if (hit.transform.gameObject.tag == "Carryable")
                         {
                             hit.transform.gameObject.GetComponent<BreakableObject>().player = gameObject;

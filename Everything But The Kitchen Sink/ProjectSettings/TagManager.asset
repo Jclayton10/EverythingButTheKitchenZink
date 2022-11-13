@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Spawn Areas
   - Enemy
+  - Sink Location
+  - Door
+  - Enemy AI
+  - Carryable
   layers:
   - Default
   - TransparentFX
@@ -15,7 +19,7 @@ TagManager:
   - UI
   - 
   - Pixel
-  - 
+  - This Player
   - 
   - 
   - 
