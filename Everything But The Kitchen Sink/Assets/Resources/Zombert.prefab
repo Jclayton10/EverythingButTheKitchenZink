@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 496458141012997798}
   - component: {fileID: 912662583582662750}
   - component: {fileID: 2213584063884304357}
+  - component: {fileID: 3116462144102999591}
+  - component: {fileID: 1097483550833296171}
   m_Layer: 0
   m_Name: Zombert
   m_TagString: Enemy
@@ -94,6 +96,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 2213584063884304357}
+  - {fileID: 1097483550833296171}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -113,6 +116,44 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!95 &3116462144102999591
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496458141012997800}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d43266538e5323e4ab82f1aa4492e126, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1097483550833296171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496458141012997800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
 --- !u!1 &6879702513024833146
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +167,7 @@ GameObject:
   - component: {fileID: 1676459016009416202}
   - component: {fileID: 4424127536127103264}
   - component: {fileID: 576249431661002759}
+  - component: {fileID: 2081931927262087295}
   m_Layer: 0
   m_Name: Zombie Model
   m_TagString: Enemy
@@ -231,3 +273,23 @@ MonoBehaviour:
   minSpeed: 0.1
   killer: {fileID: 0}
   KillPoints: 1
+--- !u!95 &2081931927262087295
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6879702513024833146}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 9b82d65131fa3bc4e87286c5def02e39, type: 3}
+  m_Controller: {fileID: 9100000, guid: 0d8c9609fa2b271499f87c467f034a69, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
