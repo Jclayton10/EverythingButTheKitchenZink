@@ -64,7 +64,7 @@ public class BreakableObject : MonoBehaviour
             {
                 Debug.Log(player);
                 TakeDamage(2);
-                collision.gameObject.GetComponent<EnemyStats>().killer = player;
+                collision.transform.root.Find("Animation").GetComponent<EnemyStats>().killer = player;
             }
         }
     }
