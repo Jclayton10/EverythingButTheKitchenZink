@@ -55,8 +55,6 @@ public class BreakableObject : MonoBehaviour
     /// <param name="collision">Game Object this Game Object collides with</param>
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided");
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("true");

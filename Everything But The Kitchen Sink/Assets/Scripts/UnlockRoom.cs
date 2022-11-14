@@ -33,5 +33,11 @@ public class UnlockRoom : MonoBehaviour
         TextMeshPro.Destroy(transform.GetChild(0).gameObject);
 
         GameObject.Find("Global Stats").GetComponent<GlobalStats>().increaseCost(3);
+
+        GameObject.Find("Sink").GetComponent<Sink>().sinkLocations.Add(transform.Find("Sink Location"));
+        GameObject.Find("Sink").GetComponent<Sink>().cantUseSinkLocations.Remove(transform.Find("Sink Location").gameObject);
+
+        if (GameObject.Find("Sink").transform.position == new Vector3(0f, -100f, 0f))
+            GameObject.Find("Sink").GetComponent<Sink>().Teleport();
     }
 }
