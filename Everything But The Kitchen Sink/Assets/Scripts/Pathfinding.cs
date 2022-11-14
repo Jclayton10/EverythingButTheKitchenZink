@@ -50,7 +50,7 @@ public class Pathfinding : MonoBehaviourPunCallbacks
             shortestDistance = navMeshAgent.remainingDistance;
             playerVal = 0;
 
-            for (int i = 1; i < allPlayers.Count; i++)
+            for (int i = 1; i < allPlayers.Count; ++i)
             {
                 navMeshAgent.SetDestination(allPlayers[i].position);
                 if (shortestDistance > navMeshAgent.remainingDistance)
