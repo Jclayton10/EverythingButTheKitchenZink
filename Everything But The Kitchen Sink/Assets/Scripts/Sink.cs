@@ -10,7 +10,7 @@ public class Sink : MonoBehaviour
 
     private void Start()
     {
-        numOfUses = 0;
+        numOfUses = 1;
         cantUseSinkLocations = new List<GameObject>(GameObject.FindGameObjectsWithTag("Room"));
     }
 
@@ -23,7 +23,7 @@ public class Sink : MonoBehaviour
 
             transform.parent = newDaddy;
             Debug.Log(sinkLocations.Count + ", " + index + ", " + newDaddy.parent);
-            transform.localPosition = new Vector3(0, 1, 0);
+            transform.localPosition = new Vector3(0, 0, 0);
             numOfUses++;
         }
         else

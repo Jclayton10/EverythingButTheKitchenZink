@@ -63,7 +63,8 @@ public class EnemyStats : MonoBehaviourPun
 		if (transform.localScale.y < 0.1f)
 		{
 			--GameObject.Find("Enemy AI").GetComponent<EnemyAIInitialization>().currentAliveZombies;
-			killer.GetComponent<PlayerStats>().IncreaseScore(KillPoints);
+			if(killer)
+				killer.GetComponent<PlayerStats>().IncreaseScore(KillPoints);
 			Destroy(transform.parent.gameObject);
 		}
 	}
