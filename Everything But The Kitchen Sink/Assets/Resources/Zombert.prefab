@@ -496,6 +496,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 9e8b018ac16b1114da10314364a99758, type: 2}
   - {fileID: 2100000, guid: f049b47e22af6ec439257ed3882a174f, type: 2}
   - {fileID: 2100000, guid: cb2a23973b0eb9a429395b4dfd6855b5, type: 2}
+  - {fileID: 2100000, guid: a4fc5200c8766794f80a67aaabcf5e52, type: 2}
+  - {fileID: 2100000, guid: b9a671aab8423a9419bb8d6ffa77dc9b, type: 2}
+  - {fileID: 2100000, guid: 3105320e4a1c6cb418c66b2907f5c35c, type: 2}
+  - {fileID: 2100000, guid: 6c379b5f231380343b460e84411abfe4, type: 2}
   selectedMaterial: {fileID: 0}
 --- !u!1 &4800811709205852437 stripped
 GameObject:
