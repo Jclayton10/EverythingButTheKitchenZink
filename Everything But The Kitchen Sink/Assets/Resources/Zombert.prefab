@@ -240,7 +240,7 @@ PrefabInstance:
     - target: {fileID: 2106145266610383287, guid: 769e16bad877ff248ba02bbf9c279a7d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a93ed596e6845db4886fad195eb9c3eb, type: 2}
+      objectReference: {fileID: 2100000, guid: 64629af22ca16a14ab7414b894c5f71f, type: 2}
     - target: {fileID: 2715566404302941441, guid: 769e16bad877ff248ba02bbf9c279a7d, type: 3}
       propertyPath: m_TagString
       value: Enemy
@@ -488,19 +488,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombertSkins:
-  - {fileID: 2100000, guid: a93ed596e6845db4886fad195eb9c3eb, type: 2}
-  - {fileID: 2100000, guid: ef16f85e070973d4d84a25da90bf9093, type: 2}
-  - {fileID: 2100000, guid: 741aa1c0ed58f934ea5644d31bec8131, type: 2}
-  - {fileID: 2100000, guid: 9c5ed466464f83247b8364f93e88f750, type: 2}
-  - {fileID: 2100000, guid: 1274622adfe4adf4fa4aaea8b6ab4c23, type: 2}
-  - {fileID: 2100000, guid: 9e8b018ac16b1114da10314364a99758, type: 2}
-  - {fileID: 2100000, guid: f049b47e22af6ec439257ed3882a174f, type: 2}
-  - {fileID: 2100000, guid: cb2a23973b0eb9a429395b4dfd6855b5, type: 2}
-  - {fileID: 2100000, guid: a4fc5200c8766794f80a67aaabcf5e52, type: 2}
-  - {fileID: 2100000, guid: b9a671aab8423a9419bb8d6ffa77dc9b, type: 2}
-  - {fileID: 2100000, guid: 3105320e4a1c6cb418c66b2907f5c35c, type: 2}
-  - {fileID: 2100000, guid: 6c379b5f231380343b460e84411abfe4, type: 2}
-  selectedMaterial: {fileID: 0}
+  - {fileID: 2800000, guid: 9a42e38a174749c4aba472ddbb9a5e45, type: 3}
+  - {fileID: 2800000, guid: 3a3bd070ddf1a9444a5a837fb8b7c47e, type: 3}
+  - {fileID: 2800000, guid: 5367072fd36817040af8c1e09d87bdb3, type: 3}
+  - {fileID: 2800000, guid: e72146e25ef1259438acc44f2178c205, type: 3}
+  - {fileID: 2800000, guid: a321c23e1a2bfda48aef6638add55fb9, type: 3}
+  - {fileID: 2800000, guid: dcd066d4519a89b469ae6145a0f291df, type: 3}
+  - {fileID: 2800000, guid: 268cf30135b217945aaa3a5db33d96f8, type: 3}
+  - {fileID: 2800000, guid: 618b5e35b4efdd84ca9dbe35bc951c26, type: 3}
+  - {fileID: 2800000, guid: 047410dd59f7600408bde27511bea862, type: 3}
+  - {fileID: 2800000, guid: 72c9ea82c3791614fbafca44454aa88e, type: 3}
+  - {fileID: 2800000, guid: 58d201aefb2c206469d9d1562de53a47, type: 3}
+  - {fileID: 2800000, guid: 801c26de4fd2fe44fb40a3336fd84a10, type: 3}
+  - {fileID: 2800000, guid: 342efe17762177d43bcd9809dce1351e, type: 3}
+  - {fileID: 2800000, guid: ded7be286fec8b24ab24b041a5b59c6e, type: 3}
+  - {fileID: 2800000, guid: c05b9b46c5f01bd40b668c6f094030ba, type: 3}
+  - {fileID: 2800000, guid: b614870e778fdfb4ebfa64d6679488eb, type: 3}
+  - {fileID: 2800000, guid: 41ad158e2b202db4aae8427eeddd5172, type: 3}
+  - {fileID: 2800000, guid: f01a4544eb9824644afb18c07755614b, type: 3}
+  selectedTexture: {fileID: 0}
 --- !u!1 &4800811709205852437 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3948933247560734027, guid: 769e16bad877ff248ba02bbf9c279a7d, type: 3}
