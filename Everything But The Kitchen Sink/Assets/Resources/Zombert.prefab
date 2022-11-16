@@ -470,6 +470,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4a97a11cc09e7409ca3eed4a6bff6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4435246339968525633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5323162407277330719, guid: 769e16bad877ff248ba02bbf9c279a7d, type: 3}
+  m_PrefabInstance: {fileID: 8381908149893227614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9148007532248883143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4435246339968525633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e2e2b95e7bd5ec4a92ce0d8ef6453a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombertSkins:
+  - {fileID: 2100000, guid: a93ed596e6845db4886fad195eb9c3eb, type: 2}
+  - {fileID: 2100000, guid: ef16f85e070973d4d84a25da90bf9093, type: 2}
+  - {fileID: 2100000, guid: 741aa1c0ed58f934ea5644d31bec8131, type: 2}
+  - {fileID: 2100000, guid: 9c5ed466464f83247b8364f93e88f750, type: 2}
+  selectedMaterial: {fileID: 0}
 --- !u!1 &4800811709205852437 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3948933247560734027, guid: 769e16bad877ff248ba02bbf9c279a7d, type: 3}
