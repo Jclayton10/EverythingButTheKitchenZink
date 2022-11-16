@@ -5,19 +5,18 @@ using TMPro;
 
 public class ScoreCounter : MonoBehaviour
 {
-    PlayerStats stats;
+    public int score;
     TextMeshProUGUI tmp;
 
     // Start is called before the first frame update
     void Start()
     {
-        stats = transform.parent.parent.GetComponent<PlayerStats>();
         tmp = GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        tmp.text = "Gold: "+stats.score;
+        tmp.text = "Gold: " + score;
     }
 }

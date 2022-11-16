@@ -9,7 +9,6 @@ public class UpdateCostLabel : MonoBehaviour
 	private void Awake()
 	{
         GlobalStats = GameObject.Find("Global Stats");
-
     }
 	private void Update()
     {

@@ -64,7 +64,7 @@ public class EnemyStats : MonoBehaviourPun
 		{
 			--GameObject.Find("Enemy AI").GetComponent<EnemyAIInitialization>().currentAliveZombies;
 			if(killer)
-				killer.GetComponent<PlayerStats>().IncreaseScore(KillPoints);
+				killer.GetComponent<PlayerScore>().IncreaseScore(KillPoints);
 			Destroy(transform.parent.gameObject);
 		}
 	}
@@ -75,8 +75,10 @@ public class EnemyStats : MonoBehaviourPun
 	/// Lowers the currentHealth value by the inputted value
 	/// </summary>
 	/// <param name="dmg">Amount of Damage To Deal</param>
+	[PunRPC]
 	public void TakeDamage(float dmg)
 	{
 		currentHealth -= dmg;
+		PhotonView.Get(this).RPC("TakeDamage", RpcTarget.Others, dmg);
 	}
 }

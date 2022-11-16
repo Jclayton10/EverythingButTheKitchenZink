@@ -8,6 +8,7 @@ public class ObjectInstantiator : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             GameObject newGameObject = PhotonNetwork.Instantiate(this.name, transform.position, transform.rotation);
+            newGameObject.transform.parent = transform.parent;
         }
         Destroy(gameObject);
     }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class EnemyAIInitialization : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class EnemyAIInitialization : MonoBehaviour
     public float timeElapsed = 0;
     //Bool to check if it is currently between waves
     public bool betweenWaves = true;
+
+    public void increaseEnemyAmt(int amt)
+    {
+        waveSpawnAmt += amt;
+    }
 
     /// <summary>
     /// Big-O: O(1)

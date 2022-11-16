@@ -40,6 +40,11 @@ MonoBehaviour:
   - Awake
   - GetSeed
   - SetValues
+  - otherPlayerDecreaseWeight
+  - otherPlayerIncreaseDmg
+  - otherPlayerIncreaseDurability
+  - TakeDamage
+  - increaseEnemyAmt
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

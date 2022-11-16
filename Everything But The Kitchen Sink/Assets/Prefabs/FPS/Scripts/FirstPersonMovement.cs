@@ -18,6 +18,8 @@ public class FirstPersonMovement : MonoBehaviour
     /// <summary> Functions to override movement speed. Will use the last added override. </summary>
     public List<System.Func<float>> speedOverrides = new List<System.Func<float>>();
 
+    PlayerStat ps;
+
 
 
     void Awake()
@@ -25,6 +27,7 @@ public class FirstPersonMovement : MonoBehaviour
         // Get the rigidbody on this.
         rb = GetComponent<Rigidbody>();
         view = GetComponent<PhotonView>();
+        ps = GameObject.Find("Stats").GetComponent<PlayerStat>();
     }
 
     void FixedUpdate()
@@ -36,6 +39,9 @@ public class FirstPersonMovement : MonoBehaviour
 
             // Get targetMovingSpeed.
             float targetMovingSpeed = IsRunning ? runSpeed : speed;
+
+            targetMovingSpeed *= ps.speed;
+
             if (speedOverrides.Count > 0)
             {
                 targetMovingSpeed = speedOverrides[speedOverrides.Count - 1]();

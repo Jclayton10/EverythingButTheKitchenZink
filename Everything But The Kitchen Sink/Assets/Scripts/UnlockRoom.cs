@@ -9,6 +9,12 @@ public class UnlockRoom : MonoBehaviour
 
     public bool opened = false;
 
+    private void Start()
+    {
+        if (opened)
+            SetValues();
+    }
+
     public void unlock()
     {
         PhotonView photonView = GetComponent<PhotonView>();
@@ -31,13 +37,14 @@ public class UnlockRoom : MonoBehaviour
         }
 
         TextMeshPro.Destroy(transform.GetChild(0).gameObject);
+        if (!opened)
+        {
+            GameObject.Find("Sink(Clone)").GetComponent<Sink>().sinkLocations.Add(transform.Find("Sink Location").position);
+            GameObject.Find("Sink(Clone)").GetComponent<Sink>().cantUseSinkLocations.Remove(transform.Find("Sink Location").position);
 
-        GameObject.Find("Global Stats").GetComponent<GlobalStats>().increaseCost(3);
-
-        GameObject.Find("Sink").GetComponent<Sink>().sinkLocations.Add(transform.Find("Sink Location"));
-        GameObject.Find("Sink").GetComponent<Sink>().cantUseSinkLocations.Remove(transform.Find("Sink Location").gameObject);
-
-        if (GameObject.Find("Sink").transform.position == new Vector3(0f, -100f, 0f))
-            GameObject.Find("Sink").GetComponent<Sink>().Teleport();
+            if (GameObject.Find("Sink(Clone)").transform.position == new Vector3(0f, -100f, 0f))
+                GameObject.Find("Sink(Clone)").GetComponent<Sink>().Teleport();
+        }
+        opened = true;
     }
 }

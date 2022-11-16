@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerScore : MonoBehaviour
 {
     public int score;
 
@@ -11,5 +11,6 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseScore(int increaseAmt)
     {
         score += increaseAmt;
+        GameObject.Find("Player UI").transform.Find("Points").GetComponent<ScoreCounter>().score = score;
     }
 }

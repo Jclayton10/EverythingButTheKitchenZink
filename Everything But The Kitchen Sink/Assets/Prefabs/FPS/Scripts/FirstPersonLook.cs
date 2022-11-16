@@ -7,7 +7,6 @@ public class FirstPersonLook : MonoBehaviourPunCallbacks
     Transform character;
     public float sensitivity = 2;
     public float smoothing = 1.5f;
-    public GameObject canvas;
 
     Vector2 velocity;
     Vector2 frameVelocity;
@@ -26,7 +25,10 @@ public class FirstPersonLook : MonoBehaviourPunCallbacks
         if (photonView.IsMine)
         {
             transform.Find("Camera").GetComponent<Camera>().enabled = true;
-            canvas.SetActive(true);
+        }
+        else
+        {
+            GameObject.Find("Player UI").SetActive(false);
         }
     }
 

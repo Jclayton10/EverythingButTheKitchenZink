@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class BreakableObject : MonoBehaviour
 {
+    //Key that the item will be calling from
+    public int itemKey;
+
     //Health the object has at spawn
     [Range(1, 10)]
     public int maxHealth;
@@ -31,6 +34,12 @@ public class BreakableObject : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        Vector3 values = GameObject.Find("Stats").GetComponent<ItemStats>().itemValues[itemKey];
+
+        rb.mass = values.x;
+        damage = values.y;
+        maxHealth = (int) values.z;
         currentHealth = maxHealth;
     }
 
