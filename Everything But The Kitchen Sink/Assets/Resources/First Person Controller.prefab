@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 3437175283174690242}
   - component: {fileID: -6147243060234902598}
   - component: {fileID: 3936922476905080923}
+  - component: {fileID: 1026508676855492858}
   m_Layer: 0
   m_Name: First Person Controller
   m_TagString: Player
@@ -554,6 +555,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1026508676855492858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773623360729482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f005922786d05c84b9d6e900f35f42f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 20
+  PushBackStrength: 10
+  elapsedTime: 0
 --- !u!1 &1963958859065967600
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class PlayerStat : MonoBehaviour
     /// Increases User Health Regen
     /// </summary>
     /// <param name="increaseAmt">Amount to Increase By</param>
-    public void increaseRegen(float increaseAmt) => speed += increaseAmt;
+    public void increaseRegen(float increaseAmt) => healthRegen *= increaseAmt;
 
     public void turnOff()
     {
