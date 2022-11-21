@@ -228,6 +228,12 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 38ba5be212d0b0147b75fb7a67922e2f, type: 3}
   - {fileID: 2800000, guid: a59d0df52067090459995cab811bf33f, type: 3}
   - {fileID: 2800000, guid: 641969dfcce99724db4fdb7b508c158d, type: 3}
+  - {fileID: 2800000, guid: 1cab54978cb8b0345afcb1d3d0ee902b, type: 3}
+  - {fileID: 2800000, guid: f99a7b926614c4941a08f2804dd96aac, type: 3}
+  - {fileID: 2800000, guid: 249d843420088f042b8e4148ebc639a4, type: 3}
+  - {fileID: 2800000, guid: 8b8bd642835039e469e9ec5aa2bf1344, type: 3}
+  - {fileID: 2800000, guid: de367db5b10c12d4f832f14efc9e3971, type: 3}
+  - {fileID: 2800000, guid: 0705d55dc40da194d94c6c10205715d2, type: 3}
   selectedTexture: {fileID: 0}
 --- !u!4 &4920467742438285643 stripped
 Transform:
