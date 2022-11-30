@@ -96,8 +96,7 @@ public class PickUpObject : MonoBehaviourPun
     /// </summary>
     void moveObject()
     {
-        //Checks if the gameObject is within a certain radius
-        pickedUpObject.transform.position = holdLoc.transform.position;
+        pickedUpObject.transform.localPosition = Vector3.zero;
         pickedUpObject.transform.rotation = holdLoc.transform.rotation;
     }
 
@@ -113,6 +112,7 @@ public class PickUpObject : MonoBehaviourPun
         //Makes sure that there is a rigidbody
         if (pickUpObject.GetComponent<Rigidbody>())
         {
+            pickUpObject.transform.parent = holdLoc.transform;
             //Sets the pickedUpRb values. It also turns of gravity for the object
             pickedUpRb = pickUpObject.GetComponent<Rigidbody>();
             pickedUpRb.useGravity = false;
@@ -132,6 +132,7 @@ public class PickUpObject : MonoBehaviourPun
     /// </summary>
     void throwObject()
     {
+        pickedUpObject.transform.parent = null;
         //Adds Gravity Back
         pickedUpRb.useGravity = true;
 

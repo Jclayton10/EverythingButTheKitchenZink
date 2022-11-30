@@ -1335,7 +1335,7 @@ MonoBehaviour:
   enemySpawners: []
   chooseEnemy: {fileID: 496458141012997800, guid: 560afcb9ccd61594a8c3f11354473f90, type: 3}
   currentAliveZombies: 0
-  waveSpawnAmt: 4
+  waveSpawnAmt: 2
   timeBetweenWaves: 5
   timeElapsed: 0
   betweenWaves: 1

@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Everything But The Kitchen Sink
+  m_text: Everything But The Kitchen Zink
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a633a7b59e5d407408fca19360b77ba3, type: 2}
   m_sharedMaterial: {fileID: -8405705221724084759, guid: a633a7b59e5d407408fca19360b77ba3, type: 2}
